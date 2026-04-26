@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Alarm</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1 class="title">Alarm</h1>
+
+    <div class="clock" id="clock">--:--:--</div>
+
+    <div class="controls">
+      <input type="time" id="alarmTime" class="time-input" />
+      <button id="setBtn" class="btn primary">Set</button>
+      <button id="clearBtn" class="btn ghost" disabled>Clear</button>
+    </div>
+
+    <p class="status" id="status">No alarm set</p>
+
+    <div class="ringing" id="ringing" hidden>
+      <p class="ringing-text">Wake up!</p>
+      <button id="stopBtn" class="btn stop">Stop</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
