@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chirp - Simple X-like App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1 class="brand">Chirp</h1>
+      <div id="user-area" class="user-area"></div>
+    </header>
+
+    <main id="app" class="container">
+      <!-- Auth view -->
+      <section id="auth-view" class="card hidden">
+        <div class="tabs">
+          <button id="tab-login" class="tab active" type="button">ログイン</button>
+          <button id="tab-signup" class="tab" type="button">新規登録</button>
+        </div>
+
+        <form id="auth-form" class="form" autocomplete="on">
+          <label>
+            メールアドレス
+            <input type="email" id="email" required autocomplete="email" />
+          </label>
+          <label>
+            パスワード
+            <input
+              type="password"
+              id="password"
+              required
+              minlength="6"
+              autocomplete="current-password"
+            />
+          </label>
+          <button id="auth-submit" type="submit" class="btn primary">
+            ログイン
+          </button>
+          <p id="auth-message" class="message"></p>
+        </form>
+      </section>
+
+      <!-- Feed view -->
+      <section id="feed-view" class="hidden">
+        <div class="card">
+          <form id="post-form" class="form">
+            <textarea
+              id="post-text"
+              maxlength="280"
+              placeholder="いまどうしてる?"
+              required
+            ></textarea>
+            <div class="post-actions">
+              <span id="char-count" class="muted">0 / 280</span>
+              <button type="submit" class="btn primary">つぶやく</button>
+            </div>
+            <p id="post-message" class="message"></p>
+          </form>
+        </div>
+
+        <div id="posts" class="posts">
+          <p class="muted">読み込み中...</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Supabase JS SDK from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <!-- Local config (git-ignored). See config.example.js -->
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
